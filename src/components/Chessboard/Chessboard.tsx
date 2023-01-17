@@ -20,7 +20,7 @@ export enum TeamType {
     OUR
 }
 
-interface Piece {
+export interface Piece {
     image: string;
     x: number;
     y: number;
@@ -103,7 +103,7 @@ export default function Chessboard() {
                 const y = Math.abs(Math.ceil((e.clientY - chessboard.offsetTop - 800)/100));
                 const pieces = value.map(p => {
                     if (p.x === gridX && p.y === gridY) {
-                        const validMove = referee.idValidMove(gridX, gridY, x, y, p.type, p.team);
+                        const validMove = referee.idValidMove(gridX, gridY, x, y, p.type, p.team, value);
                         if (validMove) {
                             p.x = x;
                             p.y = y;
